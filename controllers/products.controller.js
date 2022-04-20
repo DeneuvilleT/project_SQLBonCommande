@@ -15,23 +15,25 @@ export default (app, db) => {
             col1: "Commande",
             col2: "Date de la commande",
             col3: "Date de livraison",
-            status: "Status",
+            status: "Statut",
             data: result.result,
          });
-
 
       } catch (error) {
          console.log('ERROR CONTROLLER =>', error);
       }
    });
 
-   app.get("/api/v1/products/one/:id", async (req, res) => {
+   app.get("/article", async (req, res) => {
       let id = req.params.id;
       try {
          const result = await productModel.getOneProduct(id);
-         // res.json({
-         //    result: result,
-         // })
+
+         res.render("template", {
+            template: "home",
+            h1: "Bons de commande",
+         })
+
       } catch (error) {
          console.log('ERROR CONTROLLER =>', error);
       }

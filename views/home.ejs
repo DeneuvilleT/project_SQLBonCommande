@@ -4,7 +4,6 @@
 
 
 <table class="standard-table">
-
    <caption>
       <%=title%>
    </caption>
@@ -28,19 +27,16 @@
       <% data.forEach((ele)=>{ %>
          <tr>
             <td>
-               <a href="">
+               <a href="/article">
                   <%= ele.orderNumber %>
                </a>
             </td>
-
             <td>
-               <%= ele.orderDate %>
+               <%= ele.orderDate.toLocaleDateString("fr") %>
             </td>
-
             <td>
                <%= ele.shippedDate %>
             </td>
-
             <td>
                <%=ele.status%>
             </td>
