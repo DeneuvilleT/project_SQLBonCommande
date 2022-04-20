@@ -8,7 +8,7 @@ export default (_db) => {
 class ProductModel{
    static async getAllProducts() {
       try {
-         const thing = await db.query("SELECT productVendor, (SUM(buyPrice)/LENGTH('MSRP')) FROM products GROUP BY productVendor DESC");
+         const thing = await db.query("SELECT orderNumber, orderDate, shippedDate, status FROM orders");
          return {
             status: 200,
             result: thing,
@@ -21,7 +21,7 @@ class ProductModel{
       }
    }
 
-   static async getOneProducts(id) {
+   static async getOneProduct(id) {
       try {
          const quest = await db.query('SELECT * FROM orders WHERE orderNumber = ?', [id]);
          return {
