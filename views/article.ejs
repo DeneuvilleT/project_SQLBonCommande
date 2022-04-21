@@ -4,12 +4,12 @@
 
 <a href="/">Retourner à l'accueil</a>
 
-<h2 class="order-form-customer">
+<h1 class="order-form-customer">
    <%= data2[0].customerName%>
-</h2>
-<h2 class="order-form-customer">
+</h1>
+<h3 class="order-form-customer">
    <%= data2[0].contactFirstName + data2[0].contactLastName%>
-</h2>
+</h3>
 <h3 class="order-form-customer">
    <%= data2[0].addressLine1%>
 </h3>
@@ -52,7 +52,7 @@
                <%= ele.quantityOrdered %>
             </td>
             <td>
-               <%=(ele.quantityOrdered * ele.priceEach)%> €
+               <%=(ele.quantityOrdered * ele.priceEach).toFixed(2)%> €
             </td>
          </tr>
          <%})%>
