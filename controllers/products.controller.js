@@ -24,16 +24,24 @@ export default (app, db) => {
       }
    });
 
-   app.get("/article", async (req, res) => {
+   app.get("/:id", async (req, res) => {
       let id = req.params.id;
       try {
          const result = await productModel.getOneProduct(id);
 
          res.render("template", {
-            template: "home",
+            template: "article",
             h1: "Bons de commande",
+            title: "Bon de commande n°"+ id,
+            col1: "Produit",
+            col2: "Prix Unitaire",
+            col3: "Quantité",
+            col4: "Prix Total",
+            data: result.result,
+            data2: result.result2,
+            data3: result.result3
          })
-
+         
       } catch (error) {
          console.log('ERROR CONTROLLER =>', error);
       }
